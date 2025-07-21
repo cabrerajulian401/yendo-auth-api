@@ -11,7 +11,7 @@
 This project is the direct result of a self-directed initiative to understand and model the core technical challenges of Yendo's business. Following a conversation on Thursday, I dedicated the weekend to learning Go from the ground up and applying that knowledge to build a functional service that simulates one of Yendo's most critical operations: Credit Authorizations.
 
 The objective is twofold:
-1.  **To demonstrate rapid, focused learning and execution:** Proving that new technologies can be mastered and applied to deliver functional prototypes under a tight deadline.
+1.  **To demonstrate rapid, focused learning and execution:** Proving that I can learn new technologies apply them to deliver functional prototypes under a tight deadline and a short amount of time
 2.  **To build a relevant, mission-driven application:** This isn't a generic API. It's a foundational piece of an underwriting engine specifically designed for a company that provides credit to those with non-traditional financial profiles.
 
 Detailed learning notes and project plans from this weekend-long effort are included in the repository to document the development process.
