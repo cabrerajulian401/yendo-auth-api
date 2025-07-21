@@ -1,51 +1,56 @@
 # Yendo | Backend Authorization Service (Go)
 
-**A high-performance, scalable proof-of-concept for a core transaction authorization service, engineered with Go.**
+**A scalable proof-of-concept for a core transaction authorization service, engineered with Go**
+
+**Learned Go and Created Project in 1 Weekend: 07/18/2025 - 07/20/2025**
 
 ---
 
-## 1. Overview
+## 1. Project Genesis & Objective
 
-This project is a backend service designed to simulate the high-throughput transaction authorization flow required by a modern FinTech platform like Yendo. It provides a RESTful API for processing authorization requests and retrieving transaction data, built to showcase key principles of backend engineering: performance, simplicity, and scalability.
+This project is the direct result of a self-directed initiative to understand and model the core technical challenges of Yendo's business. Following a conversation on Thursday, I dedicated the weekend to learning Go from the ground up and applying that knowledge to build a functional service that simulates one of Yendo's most critical operations: Credit Authorizations.
 
-The system is written entirely in Go, leveraging its powerful concurrency model and standard library to create a lightweight, efficient, and dependency-free service. While this prototype utilizes an in-memory data store for performance testing and rapid development, its architecture is designed for a seamless transition to a persistent, production-grade database system.
+The objective is twofold:
+1.  **To demonstrate rapid, focused learning and execution:** Proving that new technologies can be mastered and applied to deliver functional prototypes under a tight deadline.
+2.  **To build a relevant, mission-driven application:** This isn't a generic API. It's a foundational piece of an underwriting engine specifically designed for a company that provides credit to those with non-traditional financial profiles.
 
-## 2. Core Engineering Principles Demonstrated
+Detailed learning notes and project plans from this weekend-long effort are included in the repository to document the development process.
 
-This service was built to exemplify several key backend engineering tenets:
+## 2. Business Logic: Why This Matters to Yendo
 
-* **Performance:** By using Go and avoiding heavy frameworks, the service is optimized for low-latency request processing and a small memory footprint, critical for financial transactions.
-* **Concurrency:** Go's native support for goroutines and channels makes it trivial to handle thousands of concurrent requests efficiently, ensuring the system remains responsive under load.
-* **Scalability:** The service is stateless, meaning multiple instances can be deployed behind a load balancer to scale horizontally without any code changes.
-* **Maintainability:** With clean, commented, and idiomatic Go code, the service is easy to understand, maintain, and extend.
+For a company like Yendo, the initial authorization is more than just a transaction; it's the entry point to a sophisticated risk assessment process. This service simulates that first step, providing a robust and scalable foundation for a system that must:
 
-## 3. System Architecture
+* **Handle High-Volume Requests:** Reliably process thousands of credit applications in a secure manner
+* **Capture Critical Data:** Securely ingest the necessary data points for making an underwriting decision.
+* **Ensure Low Latency:** Provide a fast response to customers and partners.
 
-The architecture is simple and robust, consisting of two main components:
+This prototype proves out the core API structure required to support these critical business needs.
 
-1.  **HTTP Server:** A lightweight server built using Go's native `net/http` package. It listens for incoming API requests, routes them to the appropriate handler, and manages the request/response lifecycle.
-2.  **Request Handlers:** Functions that contain the core business logic. They are responsible for decoding JSON payloads, processing the authorization logic, and encoding JSON responses.
+## 3. Core Engineering Principles
+
+This service was built to exemplify key backend engineering tenets essential for a FinTech platform:
+
+* **Performance:** Using Go's compiled nature and avoiding heavy frameworks, the service is optimized for low-latency request processing and a minimal memory footprint.
+* **Scalability:** The stateless architecture allows for seamless horizontal scaling behind a load balancer, ensuring the system can grow with user demand.
+* **Concurrency:** Leveraging Go's native goroutines, the service is architected to handle a high volume of concurrent requests efficiently, crucial for a real-time financial application.
+* **Maintainability:** The codebase is clean, commented, and uses idiomatic Go, making it easy to understand, maintain, and extend.
 
 ## 4. API Specification
 
 ### POST /authorize
 
-Submits a new transaction for authorization.
+Submits a new credit application for authorization.
 
-* **Description:** The primary endpoint for processing a new transaction. It accepts a JSON payload and returns a status confirmation.
 * **Request Body:**
-
     ```json
     {
         "id": "txn_1a2b3c4d5e",
         "cardNumber": "4111222233334444",
-        "amount": 99.95,
+        "amount": 2500.00,
         "timestamp": 1679340000
     }
     ```
-
-* **Success Response (200 OK):**
-
+* **Success Response (`201 Created`):**
     ```json
     {
         "status": "approved",
@@ -55,17 +60,15 @@ Submits a new transaction for authorization.
 
 ### GET /authorizations
 
-Retrieves a list of all transactions processed by the service.
+Retrieves a list of all processed credit applications.
 
-* **Description:** An internal endpoint for retrieving the full history of authorization requests for administrative or debugging purposes.
-* **Success Response (200 OK):**
-
+* **Success Response (`200 OK`):**
     ```json
     [
         {
             "id": "txn_1a2b3c4d5e",
             "cardNumber": "4111222233334444",
-            "amount": 99.95,
+            "amount": 2500.00,
             "timestamp": 1679340000
         }
     ]
@@ -73,37 +76,38 @@ Retrieves a list of all transactions processed by the service.
 
 ## 5. Local Deployment
 
-To build and run the service locally, ensure Go is installed.
-
 1.  **Clone the repository:**
     ```bash
     git clone [your-repository-url]
     cd yendo-auth-api
     ```
-
 2.  **Run the service:**
     ```bash
     go run main.go
     ```
-
 3.  The server will start on `http://localhost:8080`.
 
-## 6. Engineering Roadmap
+## 6. Future Roadmap to a Production-Ready Underwriting Engine
 
-This outlines the strategic evolution of the service from a prototype to a production-ready system.
+This outlines the strategic evolution of the service from a prototype to a core component of Yendo's business infrastructure.
 
-* **Phase 1: Database Integration & Persistence**
-    * **Action:** Integrate a production-grade SQL database (e.g., **PostgreSQL**) and implement a data access layer to handle all database operations.
-    * **Benefit:** Ensures data durability and enables complex, stateful queries.
+* **Phase 1: Enhance the Data Model for Underwriting**
+    * **Action:** Expand the `AuthorizationRequest` struct and database schema to include Yendo-specific data points critical for collateral-based lending.
+    * **New Fields:** `MakeOfCar`, `ValueOfCar`, `FicoScore`.
+    * **Benefit:** This transforms the service from a simple transaction processor into a true data-gathering tool for the underwriting engine, directly aligning it with Yendo's business model.
 
-* **Phase 2: Containerization & CI/CD**
-    * **Action:** Create a **Dockerfile** to containerize the service. Set up a CI/CD pipeline (e.g., using GitHub Actions) to automate testing and deployment.
+* **Phase 2: Database Integration & Persistence**
+    * **Action:** Integrate a production-grade SQL database (e.g., **PostgreSQL**) and implement a data access layer.
+    * **Benefit:** Ensures data durability, enables complex stateful queries, and provides a single source of truth for all applications.
+
+* **Phase 3: Containerization & CI/CD**
+    * **Action:** Create a **Dockerfile** to containerize the service and set up a CI/CD pipeline (e.g., GitHub Actions) to automate testing and deployment.
     * **Benefit:** Streamlines the development lifecycle and ensures consistent, reliable deployments.
 
-* **Phase 3: Observability & Monitoring**
-    * **Action:** Instrument the code with structured logging and export metrics (e.g., request latency, error rates) to a monitoring system like **Prometheus**.
-    * **Benefit:** Provides critical visibility into the system's health and performance in a production environment.
+* **Phase 4: Observability & Monitoring**
+    * **Action:** Instrument the code with structured logging and export metrics (e.g., request latency, error rates) to a system like **Prometheus**.
+    * **Benefit:** Provides critical visibility into system health and performance.
 
-* **Phase 4: Advanced Security & Validation**
+* **Phase 5: Advanced Security & Validation**
     * **Action:** Implement strict request validation and secure the API with authentication middleware (e.g., JWT).
-    * **Benefit:** Hardens the service against invalid data and unauthorized access, essential for a financial application.
+    * **Benefit:** Hardens the service against invalid data and unauthorized access, essential for a financial application. 
