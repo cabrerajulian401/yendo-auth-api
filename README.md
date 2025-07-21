@@ -2,7 +2,7 @@
 
 **A scalable proof-of-concept for a core transaction authorization service, engineered with Go**
 
-**Learned Go from almost scratch and created Project in 1 Weekend: 07/18/2025 - 07/20/2025**
+**Learned Go Basics and created Project in 1 Weekend: 07/18/2025 - 07/20/2025**
 
 ---
 
