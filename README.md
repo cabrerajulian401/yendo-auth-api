@@ -6,15 +6,17 @@
 
 ---
 
-## 1. Project Overview & Objective
+## 1. Project Preface & Objectives
+
+### Preface:
 
 This project is the direct result of a self-directed initiative to understand and model the core technical concepts of Yendo's business. Following a conversation on Thursday, I dedicated the weekend to learning Go from the ground up and applying that knowledge to build a functional service that simulates one of Yendo's most critical operations: credit card transactions.
 
-The objective is twofold:
-1.  **To demonstrate rapid, focused learning and execution:** Proving that I can learn new technologies and apply them to deliver functional prototypes under a tight deadline.
-2.  **To build a simple & scalable transaction backend service:** This simulates backend credit card operations and serves as a lightweight framework for **storing & transactions and their attributes and consumer data** . It is designed to be scalable to include customer attributes specific to Yendo, such as the car make and value used as collateral in the business model.
+###  Objectives:
+ 1.  To demonstrate rapid, focused learning and execution: Proving that I can learn new technologies and apply them to deliver functional prototypes under a tight deadline.
+ 2.  To build a simple & scalable transaction backend service: This simulates backend credit card operations and serves as a lightweight framework for storing & creating customer data transactions. **This service should be able to generate a Transaction ID and Timestamp for a Transaction and be able to record/showcase all Transactions within Server using API Endpoints**
 
-### Detailed Markdown learning notes of Go Documentation and project plans from this weekend-long effort are aslo included in the repository to document my learning process.
+#### Detailed Markdown learning notes of Go Documentation and project plans from this weekend-long effort are aslo included in the repository to document my learning process.
 
 ## 2. Business Logic: Why This Matters to Yendo
 
