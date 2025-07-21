@@ -21,7 +21,7 @@ Detailed learning notes and project plans from this weekend-long effort are incl
 For a company like Yendo, the initial authorization is more than just a transaction; it's the entry point to a sophisticated risk assessment process. This service simulates that first step, providing a robust and scalable foundation for a system that must:
 
 * **Handle High-Volume Requests:** Reliably process thousands of credit applications in a secure manner
-* **Capture Critical Data:** Securely ingest the necessary data points for making an underwriting decision.
+* **Capture Critical Data:** Securely ingest the necessary data points for making an underwriting decision using Encoding/Decoding and HTTP Server logic
 * **Ensure Low Latency:** Provide a fast response to customers and partners.
 
 This prototype proves out the core API structure required to support these critical business needs.
