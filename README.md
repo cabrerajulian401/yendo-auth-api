@@ -1,4 +1,4 @@
-# Credit | Backend Transaction Service (Go)
+# Credit Card | Backend Transaction Service (Go) **In-Progess** 
 
 **A scalable proof-of-concept for a core transaction authorization service, engineered with Go.**
 
@@ -10,19 +10,33 @@
 
 ### Preface:
 
-This project is the direct result of a self-directed initiative to understand and model the core technical concepts of Yendo's business. Following a conversation on Thursday, I dedicated the weekend to learning Go from the ground up and applying that knowledge to build a functional service that simulates one of Yendo's most critical operations: credit card transactions.
+This project is the direct result of a self-directed initiative to understand and model the core technical concepts of Credt Card Operations's business. My goal is to build a functional service that simulates one of Credt Card Operations's most critical operations: credit card transactions.
 
 ###  Objectives:
- 1.  To demonstrate rapid, focused learning and execution: Proving that I can learn new technologies and apply them to deliver functional prototypes under a tight deadline.
- 2.  To build a simple & scalable transaction backend service: This simulates backend credit card operations and serves as a lightweight framework for storing & creating customer data transactions. **This service should be able to generate a Transaction ID and Timestamp for a Transaction and be able to record/showcase all Transactions within Server using API Endpoints**
+ 
+Build a simple & scalable transaction backend service: This simulates backend credit Credt Card Operations and serves as a lightweight framework for storing & creating customer data transactions with a **Restful** **HTTP Server** and a **PostgreSQL Database** . **This service should be able to generate a Transaction ID and Timestamp for a Transaction and be able to record/showcase all Transactions within Server using API Endpoints**
 
-#### Detailed Markdown learning notes of Go Documentation and project plans from this weekend-long effort are aslo included in the repository to document my learning process.
 
-## 2. Business Logic: Why This Matters to Yendo
+### Technologies: 
+
+- Go
+
+- HTTP Servers Package
+
+- PostgreSQL
+
+- Linux
+
+- AWS
+
+- Bash
+
+
+## 2. Business Logic: Why This Matters to Credt Card Operations
 
 For a FinTech credit card company, this transaction server simulates the first step of providing a robust and scalable foundation for the following:
 
-* **Handling High-Volume Requests:** To process thousands of credit transactions in a secure manner using specific endpoints and endpoint error logic in the future.
+* **Handling High-Volume Requests:** To process thousands of credit transactions in a secure manner using specific endpoints and endpoint error logic in the future using a Robit **PSQL** database
 * **Capturing Critical Data:** Securely ingest necessary data points like Amount, Transaction ID, and Timestamp for keeping record of transaction records  using Go's encoding/decoding JSON packages and HTTP server logic.
 * **Ensuring Low Latency:** Provide a fast response to customers and partners by using Go for its concurrency.
 
@@ -32,13 +46,13 @@ This prototype proves out the core API structure required to support these criti
 
 This service was built to exemplify basic customer transctions.
 
-* **Performance for a Better Customer Experience:** A customer waiting for a transaction to be approved is a moment of friction. This service is fast by design, using Go's compiled code and efficient in-memory data structures (defined by Go `structs` and `slices`). This translates to near-instantaneous transactions, building customer trust.
+* **Performance for a Better Customer Experience:** A customer waiting for a transaction to be approved is a moment of friction. This service is fast by design, using Go's compiled code and efficient in-memory data structures (defined by Go `structs` and `slices`). 
 
 * **Type-Safe JSON Processing:** The service ensures data integrity through Go's strict type system and its native `encoding/json` package. By defining a clear `AuthorizationRequest` struct with `json` tags, we enforce a strict contract for all incoming data. The server efficiently **unmarshals** incoming JSON into this struct, rejecting any malformed requests, and **marshals** the Go struct back into JSON for responses, guaranteeing predictable and secure data exchange without external dependencies.
 
-* **Concurrency for Uninterrupted Service:** In the real world, user traffic isn't predictable. A new partnership or peak-hour demand can cause a sudden surge in requests. This service is built using Go's native concurrency model, where each incoming request is handled independently and efficiently. This means the platform can manage thousands of simultaneous transactions without slowing down, ensuring a stable and reliable service for every customer, even during peak load. This is why Go is useful for this.
+* **Concurrency for Uninterrupted Service:** The platform can manage thousands of simultaneous transactions without slowing down, ensuring a stable and reliable service for every customer, even during peak load. This is why Go is useful for this.
 
-* **Scalability for Future Growth:** What happens when Yendo grows from 1,000 to 1,000,000 users? A scalable system means you don't have to rebuild everything. The server logic is "stateless," allowing it to be easily replicated across multiple servers to handle massive user growth without a drop in performance without needing previous memory of past requests.
+* **Scalability for Future Growth:** What happens when Credt Card Operations grows from 1,000 to 1,000,000 users? A scalable system means you don't have to rebuild everything. The server logic is "stateless" and is synced to a hosted PSQL Database.
 
 ## 4. API Specification & Server Functionality
 
@@ -86,7 +100,7 @@ Retrieves a list of all processed transactions. This is a read-only operation th
 1.  **Clone the repository:**
     ```bash
     git clone [your-repository-url]
-    cd yendo-auth-api
+    cd Credt Card Operations-auth-api
     ```
 
 2. Install all necessary `package` import dependencies in `main.go` 
@@ -111,10 +125,10 @@ Retrieves a list of all processed transactions. This is a read-only operation th
 
 ## 6. Future Roadmap to a Production-Ready Server
 
-This outlines the strategic evolution of the service from a prototype to a core component of Yendo's business infrastructure.
+This outlines the strategic evolution of the service from a prototype to a core component of Credt Card Operations's business infrastructure.
 
 * **Phase 1: Enhance the Data Fields**
-    * **Action:** Expand the `AuthorizationRequest` struct to include Yendo-specific data points critical for collateral-based lending.
+    * **Action:** Expand the `AuthorizationRequest` struct to include Credt Card Operations-specific data points critical for collateral-based lending.
     * **New Fields:** `MakeOfCar`, `ValueOfCar`, `FicoScore`.
     * **Benefit:** This transforms the service from a simple transaction processor into a true data-gathering tool for company-specific data points and makes Customer data points more specific
 
