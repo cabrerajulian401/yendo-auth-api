@@ -1,16 +1,20 @@
+// Yendo Mini-Project
+
+
+
 package main
 
 import (
-
+	
 	"encoding/json" // Importing JSON package to marshal Go Data Structures
 	"log" 		    // Importing Log package 
 	"net/http"		// HTTP package to create both clients and servers
 	"time"
 	"github.com/google/uuid" // Useful for measuring and displaying time. 
-	
+	"fmt" // FMT Package that provides printing functions 
 
 )
-
+ff 
 
 // This is our data structure that serves for storing the attributes of a Credit Card Authorization
 
@@ -31,9 +35,6 @@ type AuthorizationRequest struct {
 var authorizations = []AuthorizationRequest{}
 
 // Note that the slice authorization is a slice being a collection of the Struct we declared above
-
-
-
 
 
 
@@ -111,5 +112,8 @@ func main() {
 
 
 }
+
+
+
 
 
