@@ -14,7 +14,7 @@ This project is the direct result of a self-directed initiative to understand an
 
 ###  Objectives:
  
-Build a simple & scalable transaction backend service: This simulates backend credit Credt Card Operations and serves as a lightweight framework for storing & creating customer data transactions with a **Restful** **HTTP Server** and a **PostgreSQL Database** . **This service should be able to generate a Transaction ID and Timestamp for a Transaction and be able to record/showcase all Transactions within Server using API Endpoints**
+Build a simple & scalable transaction backend service: This simulates backend credit Credt Card Operations and serves as a lightweight framework for storing & creating customer data transactions with a **Restful** **HTTP Server** and a **PostgreSQL Database** . **This service should be able to generate a Transaction ID and Timestamp for a Transaction and be able to record/showcase all Transactions within Database using API HTTP Endpoints**
 
 
 ### Technologies: 
