@@ -1,4 +1,4 @@
-# Yendo | Backend Transaction Service (Go)
+# Credit | Backend Transaction Service (Go)
 
 **A scalable proof-of-concept for a core transaction authorization service, engineered with Go.**
 
